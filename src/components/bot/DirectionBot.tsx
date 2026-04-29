@@ -62,6 +62,12 @@ export const DirectionBot = () => {
     }
   }, [open]);
 
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-direction-bot", handler);
+    return () => window.removeEventListener("open-direction-bot", handler);
+  }, []);
+
   const choose = (opt: Option) => {
     setScore((s) => ({
       acting: s.acting + (opt.w.acting ?? 0),
