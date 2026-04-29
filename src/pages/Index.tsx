@@ -1,16 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Nav } from "@/components/sections/Nav";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Directions } from "@/components/sections/Directions";
+import { Benefits } from "@/components/sections/Benefits";
+import { Teachers } from "@/components/sections/Teachers";
+import { Atmosphere } from "@/components/sections/Atmosphere";
+import { FAQ } from "@/components/sections/FAQ";
+import { Offer } from "@/components/sections/Offer";
+import { ApplyForm } from "@/components/sections/ApplyForm";
+import { Footer } from "@/components/sections/Footer";
+import { useEffect } from "react";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  useEffect(() => {
+    document.title = "КіноPoint Film — Школа акторської майстерності та журналістики для дорослих";
+    const meta = document.querySelector('meta[name="description"]');
+    const content =
+      "Приватна школа для дорослих у Києві. Акторська майстерність і журналістика — для впевненості, голосу й свободи самовираження. Знижка 50% на перший місяць.";
+    if (meta) meta.setAttribute("content", content);
+    else {
+      const m = document.createElement("meta");
+      m.name = "description";
+      m.content = content;
+      document.head.appendChild(m);
+    }
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="relative bg-background">
+      <Nav />
+      <Hero />
+      <About />
+      <Directions />
+      <Benefits />
+      <Teachers />
+      <Atmosphere />
+      <FAQ />
+      <Offer />
+      <ApplyForm />
+      <Footer />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
