@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import hero from "@/assets/hero.jpg";
 
 export const Hero = () => (
@@ -53,19 +54,19 @@ export const Hero = () => (
         transition={{ duration: 1, delay: 1.1 }}
         className="mt-10 flex flex-wrap items-center gap-4"
       >
-        <a
-          href="#directions"
+        <button
+          onClick={() => window.dispatchEvent(new Event("open-direction-bot"))}
           className="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:shadow-glow"
         >
           Підібрати напрям
           <span className="transition-transform group-hover:translate-x-1">→</span>
-        </a>
-        <a
-          href="#apply"
+        </button>
+        <Link
+          to="/apply"
           className="inline-flex items-center gap-3 border border-foreground/30 px-8 py-4 text-sm uppercase tracking-[0.2em] text-foreground transition-all hover:border-foreground"
         >
           Залишити заявку
-        </a>
+        </Link>
       </motion.div>
 
       <motion.p

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import acting from "@/assets/acting.jpg";
 import journalism from "@/assets/journalism.jpg";
@@ -7,38 +8,41 @@ const items = [
     img: acting,
     tag: "Напрям I",
     title: "Акторська майстерність",
-    desc: "Робота з тілом, голосом, увагою та уявою. Етюди, сценічна мова, робота з партнером і камерою.",
-    forWhom: "Для тих, хто хоче відчути свободу руху й слова — на сцені й у житті.",
-    gives: "Розкріпачення, контакт із собою, природність у будь-якій взаємодії.",
-    teacher: "Викладач — Олег Левченко",
+    desc: "Сцена, тіло, голос, емоція. Простір, де можна відчути свободу — і собою, і поруч з іншими.",
+    forWhom: "Для тих, хто хоче відкритись, відчути сцену та контакт із собою.",
+    gives: "Розкріпачення, природність, сміливість самовираження.",
+    to: "/acting",
   },
   {
     img: journalism,
     tag: "Напрям II",
     title: "Журналістика",
-    desc: "Інтерв'ю, текст, голос у кадрі, побудова історії. Робота зі студією, мікрофоном і камерою.",
-    forWhom: "Для тих, хто хоче впевнено говорити, ставити запитання й вести розповідь.",
-    gives: "Чітке мовлення, аналітичне мислення, медіаприсутність.",
-    teacher: "Викладач — Анна Ковальчук",
+    desc: "Студія, мікрофон, камера, інтерв'ю. Робота з мовленням, подачею і присутністю в кадрі.",
+    forWhom: "Для тих, хто хоче говорити чітко, впевнено й цікаво.",
+    gives: "Чітка подача, медіаприсутність, структура думки.",
+    to: "/journalism",
   },
 ];
 
 export const Directions = () => (
-  <section id="directions" className="relative border-t border-border/60 bg-secondary/20 py-28 md:py-40">
+  <section id="directions" className="relative border-t border-border/60 bg-secondary/20 py-24 md:py-32">
     <div className="container">
       <Reveal className="mx-auto max-w-2xl text-center">
         <p className="text-xs uppercase tracking-[0.4em] text-primary">Напрями навчання</p>
         <h2 className="mt-6 font-display text-4xl md:text-6xl">Два шляхи. Один простір.</h2>
         <p className="mt-6 leading-relaxed text-muted-foreground">
-          Оберіть напрям, який резонує — або напишіть нам, і ми допоможемо знайти ваш.
+          Оберіть напрям, який резонує — або скористайтесь підбором, і ми допоможемо знайти ваш.
         </p>
       </Reveal>
 
-      <div className="mt-20 grid gap-10 md:grid-cols-2 md:gap-12">
+      <div className="mt-16 grid gap-8 md:grid-cols-2 md:gap-10">
         {items.map((d, i) => (
           <Reveal key={d.title} delay={i * 0.15}>
-            <article className="group flex h-full flex-col overflow-hidden border border-border/60 bg-background transition-all hover:border-primary/40 hover:shadow-elegant">
-              <div className="relative aspect-[4/5] overflow-hidden">
+            <Link
+              to={d.to}
+              className="group flex h-full flex-col overflow-hidden border border-border/60 bg-background transition-all hover:border-primary/40 hover:shadow-elegant"
+            >
+              <div className="relative aspect-[5/4] overflow-hidden">
                 <img
                   src={d.img}
                   alt={d.title}
@@ -61,15 +65,11 @@ export const Directions = () => (
                     <dd className="mt-1 text-foreground/90">{d.gives}</dd>
                   </div>
                 </dl>
-                <p className="mt-6 text-sm text-muted-foreground">{d.teacher}</p>
-                <a
-                  href="#apply"
-                  className="mt-8 inline-flex items-center gap-2 self-start border-b border-primary/60 pb-1 text-sm uppercase tracking-[0.2em] text-primary transition-all hover:gap-4"
-                >
-                  Подати заявку <span>→</span>
-                </a>
+                <span className="mt-8 inline-flex items-center gap-2 self-start border-b border-primary/60 pb-1 text-sm uppercase tracking-[0.2em] text-primary transition-all group-hover:gap-4">
+                  Відкрити напрям <span>→</span>
+                </span>
               </div>
-            </article>
+            </Link>
           </Reveal>
         ))}
       </div>
