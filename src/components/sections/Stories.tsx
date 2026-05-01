@@ -25,8 +25,8 @@ const stories = [
 ];
 
 export const Stories = () => (
-  <section className="relative border-t border-border/60 py-24 md:py-32">
-    <div className="container">
+  <section className="relative overflow-hidden border-t border-border/60 surface-spotlight py-24 md:py-32">
+    <div className="container relative">
       <Reveal className="mx-auto max-w-2xl text-center">
         <p className="text-xs uppercase tracking-[0.4em] text-primary">Історії трансформації</p>
         <h2 className="mt-6 font-display text-4xl md:text-5xl text-balance">
@@ -36,25 +36,25 @@ export const Stories = () => (
 
       <div className="mt-16 grid gap-px bg-border/60 md:grid-cols-3">
         {stories.map((s, i) => (
-          <Reveal key={s.name} delay={i * 0.1} className="bg-background p-8 md:p-10">
+          <Reveal key={s.name} delay={i * 0.1} className="surface-premium group relative p-8 transition-all duration-500 hover:bg-secondary md:p-10">
             <div className="space-y-6 text-sm leading-relaxed">
               <div>
                 <p className="text-xs uppercase tracking-widest text-primary/80">Прийшов(-ла) з</p>
                 <p className="mt-2 text-foreground/90">{s.came}</p>
               </div>
-              <div className="hairline opacity-50" />
+              <div className="hairline-gold opacity-60" />
               <div>
                 <p className="text-xs uppercase tracking-widest text-primary/80">Відкрив(-ла)</p>
                 <p className="mt-2 text-foreground/90">{s.found}</p>
               </div>
-              <div className="hairline opacity-50" />
+              <div className="hairline-gold opacity-60" />
               <div>
                 <p className="text-xs uppercase tracking-widest text-primary/80">Змінилося</p>
                 <p className="mt-2 text-foreground/90">{s.changed}</p>
               </div>
             </div>
-            <div className="mt-8 border-t border-border/60 pt-6">
-              <p className="font-display text-lg">{s.name}</p>
+            <div className="mt-8 border-t border-primary/20 pt-6">
+              <p className="font-display text-xl text-primary">{s.name}</p>
               <p className="text-xs uppercase tracking-widest text-muted-foreground">{s.role}</p>
             </div>
           </Reveal>

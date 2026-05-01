@@ -27,9 +27,9 @@ export const About = () => (
         <div className="md:col-span-7">
           <div className="grid gap-px bg-border/60 sm:grid-cols-2">
             {audiences.map((a, i) => (
-              <Reveal key={a.n} delay={i * 0.05} className="bg-background p-8 transition-colors hover:bg-secondary/40">
-                <div className="font-display text-sm text-primary">{a.n}</div>
-                <h3 className="mt-4 font-display text-2xl">{a.t}</h3>
+              <Reveal key={a.n} delay={i * 0.05} className="group bg-card p-8 transition-all duration-500 hover:bg-secondary">
+                <div className="font-display text-base text-primary transition-colors group-hover:text-ember">{a.n}</div>
+                <h3 className="mt-4 font-display text-2xl transition-colors group-hover:text-primary">{a.t}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a.d}</p>
               </Reveal>
             ))}
