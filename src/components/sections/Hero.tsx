@@ -8,13 +8,21 @@ export const Hero = () => (
       <motion.img
         src={hero}
         alt="Атмосфера школи КіноPoint"
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover saturate-[1.15] contrast-[1.08]"
         initial={{ scale: 1.12, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
       />
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-0 bg-gradient-radial" />
+      {/* Subtle warm side-light for cinematic depth */}
+      <div
+        className="absolute inset-0 opacity-70 mix-blend-soft-light"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 80% at 85% 30%, hsl(40 80% 55% / 0.45), transparent 60%), radial-gradient(ellipse 50% 60% at 10% 80%, hsl(8 78% 55% / 0.25), transparent 70%)",
+        }}
+      />
     </div>
 
     {/* Subtle editorial paper-note accent */}
@@ -28,13 +36,13 @@ export const Hero = () => (
       <div
         className="relative px-5 py-6 font-display text-sm italic leading-snug text-foreground/80 shadow-elegant"
         style={{
-          background: "linear-gradient(180deg, hsl(36 22% 90% / 0.96), hsl(36 14% 82% / 0.92))",
+          background: "linear-gradient(180deg, hsl(38 28% 92% / 0.97), hsl(36 18% 80% / 0.94))",
           color: "hsl(30 12% 14%)",
           clipPath:
             "polygon(2% 0, 96% 1%, 100% 6%, 99% 94%, 95% 100%, 6% 99%, 1% 95%, 0 5%)",
         }}
       >
-        <div className="text-[0.6rem] uppercase tracking-[0.3em] text-primary/80">Сцена · Дубль 1</div>
+        <div className="text-[0.6rem] uppercase tracking-[0.3em]" style={{ color: "hsl(8 78% 45%)" }}>Сцена · Дубль 1</div>
         <p className="mt-3">«Знайти свій голос — це почути тишу всередині.»</p>
       </div>
     </motion.div>
@@ -57,7 +65,7 @@ export const Hero = () => (
         className="mt-6 max-w-4xl font-display text-5xl leading-[1.05] text-balance md:text-7xl lg:text-[5.5rem]"
       >
         Знайдіть свій голос.<br />
-        <span className="italic text-primary/90">Відкрийтесь</span> по-новому.
+        <span className="italic gold-text">Відкрийтесь</span> по-новому.
       </motion.h1>
 
       <motion.p
@@ -78,14 +86,14 @@ export const Hero = () => (
       >
         <button
           onClick={() => window.dispatchEvent(new Event("open-direction-bot"))}
-          className="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:shadow-glow"
+          className="btn-gold group inline-flex items-center gap-3 px-9 py-4 text-sm font-medium uppercase tracking-[0.2em]"
         >
           Підібрати напрям
           <span className="transition-transform group-hover:translate-x-1">→</span>
         </button>
         <Link
           to="/apply"
-          className="inline-flex items-center gap-3 border border-foreground/30 px-8 py-4 text-sm uppercase tracking-[0.2em] text-foreground transition-all hover:border-foreground"
+          className="btn-outline-gold inline-flex items-center gap-3 px-8 py-4 text-sm uppercase tracking-[0.2em]"
         >
           Залишити заявку
         </Link>
@@ -97,8 +105,11 @@ export const Hero = () => (
         transition={{ duration: 1, delay: 1.4 }}
         className="mt-8 flex items-center gap-3 text-sm text-muted-foreground"
       >
-        <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-        Для нових учнів — знижка 50% на перший місяць навчання
+        <span className="relative inline-flex h-2 w-2">
+          <span className="absolute inset-0 animate-ping rounded-full bg-ember opacity-60" />
+          <span className="relative inline-block h-2 w-2 rounded-full bg-ember" />
+        </span>
+        Для нових учнів — <span className="text-foreground/90">знижка 50%</span> на перший місяць навчання
       </motion.p>
     </div>
 
