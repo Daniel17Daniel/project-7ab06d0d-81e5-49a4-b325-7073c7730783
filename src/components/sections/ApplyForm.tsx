@@ -29,8 +29,8 @@ export const ApplyForm = () => {
     "w-full border-0 border-b border-border bg-transparent px-0 py-4 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-0 transition-colors";
 
   return (
-    <section id="apply" className="relative border-t border-border/60 py-28 md:py-40">
-      <div className="container grid gap-16 md:grid-cols-12">
+    <section id="apply" className="relative overflow-hidden border-t border-border/60 surface-spotlight py-28 md:py-40">
+      <div className="container relative grid gap-16 md:grid-cols-12">
         <Reveal className="md:col-span-5">
           <p className="text-xs uppercase tracking-[0.4em] text-primary">Заявка</p>
           <h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl text-balance">
@@ -40,10 +40,14 @@ export const ApplyForm = () => {
             Без зобов'язань. Ми зателефонуємо чи напишемо у зручний для вас час, поставимо
             кілька запитань і спокійно поговоримо.
           </p>
-          <p className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-            Для нових учнів — знижка 50% на перший місяць навчання
-          </p>
+          <div className="mt-8 inline-flex items-center gap-3 border border-primary/30 bg-card/50 px-4 py-3 text-sm backdrop-blur-sm">
+            <span className="relative inline-flex h-2 w-2">
+              <span className="absolute inset-0 animate-ping rounded-full bg-ember opacity-60" />
+              <span className="relative inline-block h-2 w-2 rounded-full bg-ember" />
+            </span>
+            <span className="text-muted-foreground">Для нових учнів — </span>
+            <span className="gold-text font-medium">знижка 50%</span>
+          </div>
           <div className="mt-12 space-y-3 text-sm text-muted-foreground">
             <p>Київ · вул. Хрещатик, 22</p>
             <p>+380 (00) 000 00 00</p>
@@ -78,7 +82,7 @@ export const ApplyForm = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="group inline-flex items-center gap-3 bg-primary px-10 py-4 text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:shadow-glow disabled:opacity-60"
+                className="btn-gold group inline-flex items-center gap-3 px-12 py-4 text-sm font-medium uppercase tracking-[0.2em] disabled:opacity-60"
               >
                 {loading ? "Надсилаємо..." : "Надіслати заявку"}
                 <span className="transition-transform group-hover:translate-x-1">→</span>

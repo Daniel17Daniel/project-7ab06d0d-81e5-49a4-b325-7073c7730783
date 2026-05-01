@@ -22,10 +22,11 @@ export const ContentSection = ({ eyebrow, title, intro, items, variant = "cards"
       {variant === "cards" && (
         <div className="mt-16 grid gap-px bg-border/60 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (
-            <Reveal key={it.t} delay={i * 0.06} className="bg-background p-8 md:p-10">
-              <div className="font-display text-2xl text-primary/70">{String(i + 1).padStart(2, "0")}</div>
-              <h3 className="mt-6 font-display text-2xl">{it.t}</h3>
+            <Reveal key={it.t} delay={i * 0.06} className="group bg-card p-8 transition-all duration-500 hover:bg-secondary md:p-10">
+              <div className="font-display text-3xl gold-text">{String(i + 1).padStart(2, "0")}</div>
+              <h3 className="mt-6 font-display text-2xl transition-colors group-hover:text-primary">{it.t}</h3>
               {it.d && <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{it.d}</p>}
+              <div className="mt-6 hairline-gold w-8 transition-all duration-500 group-hover:w-20" />
             </Reveal>
           ))}
         </div>
@@ -34,10 +35,10 @@ export const ContentSection = ({ eyebrow, title, intro, items, variant = "cards"
       {variant === "list" && (
         <div className="mx-auto mt-16 max-w-3xl divide-y divide-border/60">
           {items.map((it, i) => (
-            <Reveal key={it.t} delay={i * 0.05} className="flex flex-col gap-2 py-6 md:flex-row md:gap-10">
-              <div className="font-display text-sm text-primary md:w-16">{String(i + 1).padStart(2, "0")}</div>
+            <Reveal key={it.t} delay={i * 0.05} className="group flex flex-col gap-2 py-6 md:flex-row md:gap-10">
+              <div className="font-display text-lg gold-text md:w-16">{String(i + 1).padStart(2, "0")}</div>
               <div className="flex-1">
-                <h3 className="font-display text-2xl">{it.t}</h3>
+                <h3 className="font-display text-2xl transition-colors group-hover:text-primary">{it.t}</h3>
                 {it.d && <p className="mt-2 leading-relaxed text-muted-foreground">{it.d}</p>}
               </div>
             </Reveal>
@@ -49,7 +50,7 @@ export const ContentSection = ({ eyebrow, title, intro, items, variant = "cards"
         <div className="mx-auto mt-14 flex max-w-3xl flex-wrap justify-center gap-3">
           {items.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.04}>
-              <span className="inline-block border border-primary/40 bg-background px-5 py-3 text-sm text-foreground/90">
+              <span className="inline-block border border-primary/40 bg-card px-5 py-3 text-sm text-foreground/90 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/5 hover:text-primary hover:shadow-glow">
                 {it.t}
               </span>
             </Reveal>

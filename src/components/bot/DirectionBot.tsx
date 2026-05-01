@@ -123,10 +123,13 @@ export const DirectionBot = () => {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-40 flex items-center gap-3 rounded-full border border-primary/40 bg-background/90 px-5 py-3 text-sm text-foreground shadow-elegant backdrop-blur-xl transition-all hover:border-primary hover:shadow-glow"
+            className="fixed bottom-6 right-6 z-40 flex items-center gap-3 rounded-full border border-primary/50 bg-card/90 px-5 py-3 text-sm text-foreground shadow-glow backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-glow-strong"
             aria-label="Допомогти обрати напрям"
           >
-            <MessageCircle className="h-4 w-4 text-primary" />
+            <span className="relative inline-flex h-4 w-4 items-center justify-center">
+              <span className="absolute inset-0 animate-ping rounded-full bg-primary/40" />
+              <MessageCircle className="relative h-4 w-4 text-primary" />
+            </span>
             <span className="hidden sm:inline">Допомогти обрати напрям?</span>
             <span className="sm:hidden">Підібрати напрям</span>
           </motion.button>
@@ -173,7 +176,7 @@ export const DirectionBot = () => {
                     </p>
                     <button
                       onClick={() => setStep(1)}
-                      className="mt-10 inline-flex items-center gap-3 bg-primary px-8 py-3 text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:shadow-glow"
+                      className="btn-gold mt-10 inline-flex items-center gap-3 px-8 py-3 text-sm font-medium uppercase tracking-[0.2em]"
                     >
                       Почати <span>→</span>
                     </button>
@@ -194,10 +197,10 @@ export const DirectionBot = () => {
                         <button
                           key={o.label}
                           onClick={() => choose(o)}
-                          className="group flex items-center justify-between gap-4 border border-border/60 bg-background/40 px-5 py-4 text-left text-sm text-foreground transition-all hover:border-primary/60 hover:bg-secondary/40"
+                          className="group flex items-center justify-between gap-4 border border-border/60 bg-background/40 px-5 py-4 text-left text-sm text-foreground transition-all hover:border-primary hover:bg-primary/5 hover:text-primary"
                         >
                           <span>{o.label}</span>
-                          <span className="text-primary opacity-0 transition-opacity group-hover:opacity-100">→</span>
+                          <span className="text-primary opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">→</span>
                         </button>
                       ))}
                     </div>
@@ -222,14 +225,14 @@ export const DirectionBot = () => {
                         <Link
                           to={r.primaryHref}
                           onClick={() => setOpen(false)}
-                          className="inline-flex items-center gap-3 bg-primary px-6 py-3 text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:shadow-glow"
+                          className="btn-gold inline-flex items-center gap-3 px-6 py-3 text-sm font-medium uppercase tracking-[0.2em]"
                         >
                           {r.primaryLabel} <span>→</span>
                         </Link>
                         <Link
                           to={r.applyHref}
                           onClick={() => setOpen(false)}
-                          className="inline-flex items-center gap-3 border border-foreground/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-foreground transition-all hover:border-foreground"
+                          className="btn-outline-gold inline-flex items-center gap-3 px-6 py-3 text-sm uppercase tracking-[0.2em]"
                         >
                           Залишити заявку
                         </Link>
