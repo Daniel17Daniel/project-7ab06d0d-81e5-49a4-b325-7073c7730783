@@ -17,12 +17,14 @@ export const Nav = () => {
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/75 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
+      {/* Subtle gold edge */}
+      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-60" />
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="КіноPoint Film" className="h-9 w-9 object-contain" />
+          <img src={logo} alt="КіноPoint Film" className="h-9 w-9 object-contain drop-shadow-[0_0_10px_hsl(40_70%_60%/0.4)]" />
           <span className="font-display text-xl tracking-wide">
-            КіноPoint <span className="text-muted-foreground">Film</span>
+            КіноPoint <span className="gold-text">Film</span>
           </span>
         </Link>
 
@@ -33,8 +35,10 @@ export const Nav = () => {
               to={l.to}
               end={l.to === "/"}
               className={({ isActive }) =>
-                `text-sm transition-colors ${
-                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                `relative text-sm transition-colors ${
+                  isActive
+                    ? "text-foreground after:absolute after:-bottom-2 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-ember"
+                    : "text-muted-foreground hover:text-primary"
                 }`
               }
             >
@@ -46,7 +50,7 @@ export const Nav = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/apply"
-            className="hidden rounded-sm border border-primary/40 px-5 py-2 text-sm tracking-wide text-primary transition-all hover:bg-primary hover:text-primary-foreground md:inline-block"
+            className="btn-gold hidden px-6 py-2.5 text-xs uppercase tracking-[0.18em] md:inline-flex md:items-center"
           >
             Залишити заявку
           </Link>

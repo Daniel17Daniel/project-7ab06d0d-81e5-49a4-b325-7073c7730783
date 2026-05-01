@@ -17,13 +17,20 @@ export const PageHero = ({ image, eyebrow, title, subtitle, primaryCta, secondar
       <motion.img
         src={image}
         alt=""
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover saturate-[1.15] contrast-[1.08]"
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       />
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-0 bg-gradient-radial" />
+      <div
+        className="absolute inset-0 opacity-60 mix-blend-soft-light"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 80% at 80% 20%, hsl(40 80% 55% / 0.45), transparent 60%), radial-gradient(ellipse 50% 60% at 15% 85%, hsl(8 78% 55% / 0.25), transparent 70%)",
+        }}
+      />
     </div>
 
     <div className="relative z-10 container flex min-h-[80svh] flex-col justify-end pb-20 pt-36 md:pb-24">
@@ -65,7 +72,7 @@ export const PageHero = ({ image, eyebrow, title, subtitle, primaryCta, secondar
           {primaryCta && (
             <Link
               to={primaryCta.to}
-              className="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:shadow-glow"
+              className="btn-gold group inline-flex items-center gap-3 px-9 py-4 text-sm font-medium uppercase tracking-[0.2em]"
             >
               {primaryCta.label}
               <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -74,7 +81,7 @@ export const PageHero = ({ image, eyebrow, title, subtitle, primaryCta, secondar
           {secondaryCta && (
             <Link
               to={secondaryCta.to}
-              className="inline-flex items-center gap-3 border border-foreground/30 px-8 py-4 text-sm uppercase tracking-[0.2em] text-foreground transition-all hover:border-foreground"
+              className="btn-outline-gold inline-flex items-center gap-3 px-8 py-4 text-sm uppercase tracking-[0.2em]"
             >
               {secondaryCta.label}
             </Link>
@@ -89,7 +96,10 @@ export const PageHero = ({ image, eyebrow, title, subtitle, primaryCta, secondar
           transition={{ duration: 0.9, delay: 1.3 }}
           className="mt-8 flex items-center gap-3 text-sm text-muted-foreground"
         >
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+          <span className="relative inline-flex h-2 w-2">
+            <span className="absolute inset-0 animate-ping rounded-full bg-ember opacity-60" />
+            <span className="relative inline-block h-2 w-2 rounded-full bg-ember" />
+          </span>
           {note}
         </motion.p>
       )}

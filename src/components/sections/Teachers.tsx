@@ -28,8 +28,10 @@ const teachers = [
 ];
 
 export const Teachers = () => (
-  <section id="teachers" className="relative border-t border-border/60 bg-secondary/20 py-28 md:py-40">
-    <div className="container">
+  <section id="teachers" className="relative overflow-hidden border-t border-border/60 bg-secondary/30 py-28 md:py-40">
+    <div className="pointer-events-none absolute left-1/2 top-0 h-[50%] w-3/4 -translate-x-1/2 opacity-50"
+      style={{ background: "radial-gradient(ellipse at top, hsl(40 70% 60% / 0.18), transparent 70%)" }} />
+    <div className="container relative">
       <Reveal className="mx-auto max-w-2xl text-center">
         <p className="text-xs uppercase tracking-[0.4em] text-primary">Викладачі</p>
         <h2 className="mt-6 font-display text-4xl md:text-6xl">Люди, з якими ви працюватимете.</h2>
@@ -42,20 +44,27 @@ export const Teachers = () => (
         {teachers.map((t, i) => (
           <Reveal key={t.name} delay={i * 0.1}>
             <article className="group">
-              <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+              <div className="relative aspect-[3/4] overflow-hidden bg-muted ring-gold transition-all duration-700 group-hover:shadow-glow-strong">
                 <img
                   src={t.img}
                   alt={t.name}
                   loading="lazy"
-                  className="h-full w-full object-cover grayscale transition-all duration-[1200ms] group-hover:scale-[1.03] group-hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale contrast-[1.1] transition-all duration-[1200ms] group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:saturate-[1.15]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div
+                  className="absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-700 group-hover:opacity-100"
+                  style={{ background: "radial-gradient(ellipse at center, hsl(40 70% 60% / 0.4), transparent 70%)" }}
+                />
               </div>
               <div className="mt-6">
-                <p className="text-xs uppercase tracking-[0.3em] text-primary">{t.role}</p>
+                <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-primary">
+                  <span className="inline-block h-1 w-1 rounded-full bg-ember" />
+                  {t.role}
+                </p>
                 <h3 className="mt-3 font-display text-3xl">{t.name}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t.bio}</p>
-                <blockquote className="mt-6 border-l border-primary/60 pl-4 font-display text-lg italic text-foreground/90">
+                <blockquote className="mt-6 border-l-2 border-primary pl-4 font-display text-lg italic text-foreground/90">
                   «{t.quote}»
                 </blockquote>
               </div>

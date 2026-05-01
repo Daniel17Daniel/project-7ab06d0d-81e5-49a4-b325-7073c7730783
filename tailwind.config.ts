@@ -71,11 +71,18 @@ export default {
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
         "gradient-gold": "var(--gradient-gold)",
+        "gradient-ember": "var(--gradient-ember)",
         "gradient-radial": "var(--gradient-radial)",
+        "gradient-spotlight": "var(--gradient-spotlight)",
+        "gradient-surface": "var(--gradient-surface)",
+        "gradient-cta": "var(--gradient-cta)",
       },
       boxShadow: {
         elegant: "var(--shadow-elegant)",
         glow: "var(--shadow-glow)",
+        "glow-strong": "var(--shadow-glow-strong)",
+        ember: "var(--shadow-ember)",
+        card: "var(--shadow-card)",
       },
       keyframes: {
         "accordion-down": {

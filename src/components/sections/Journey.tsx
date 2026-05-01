@@ -8,19 +8,23 @@ const steps = [
 ];
 
 export const Journey = () => (
-  <section className="relative border-t border-border/60 bg-secondary/20 py-24 md:py-32">
-    <div className="container">
+  <section className="relative overflow-hidden border-t border-border/60 bg-secondary/40 py-24 md:py-32">
+    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+    <div className="container relative">
       <Reveal className="mx-auto max-w-2xl text-center">
         <p className="text-xs uppercase tracking-[0.4em] text-primary">Як це працює</p>
-        <h2 className="mt-6 font-display text-4xl md:text-5xl">Шлях, який починається спокійно.</h2>
+        <h2 className="mt-6 font-display text-4xl md:text-5xl">
+          Шлях, який <span className="gold-text italic">починається спокійно.</span>
+        </h2>
       </Reveal>
 
       <ol className="mt-16 grid gap-px bg-border/60 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((s, i) => (
-          <Reveal key={s.n} delay={i * 0.08} className="bg-background p-8 md:p-10">
-            <div className="font-display text-3xl text-primary/70">{s.n}</div>
-            <h3 className="mt-6 font-display text-2xl">{s.t}</h3>
+          <Reveal key={s.n} delay={i * 0.08} className="group relative bg-card p-8 transition-all duration-500 hover:bg-card/60 md:p-10">
+            <div className="font-display text-4xl gold-text">{s.n}</div>
+            <h3 className="mt-6 font-display text-2xl transition-colors group-hover:text-primary">{s.t}</h3>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+            <div className="mt-6 hairline-gold w-8 transition-all duration-500 group-hover:w-16" />
           </Reveal>
         ))}
       </ol>

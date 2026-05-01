@@ -6,59 +6,72 @@
 
 @layer base {
   :root {
-    /* Cinematic dark — deep charcoal, warm gold, muted ember */
-    --background: 30 8% 7%;
-    --foreground: 36 24% 92%;
+    /* Cinematic dark — deep charcoal, rich warm gold, ember red accent */
+    --background: 24 9% 5%;
+    --foreground: 38 30% 94%;
 
-    --card: 30 8% 9%;
-    --card-foreground: 36 24% 92%;
+    --card: 26 10% 9%;
+    --card-foreground: 38 30% 94%;
 
-    --popover: 30 8% 9%;
-    --popover-foreground: 36 24% 92%;
+    --popover: 26 10% 9%;
+    --popover-foreground: 38 30% 94%;
 
-    --primary: 36 45% 62%;
-    --primary-foreground: 30 10% 8%;
+    /* Premium gold — richer, brighter */
+    --primary: 40 70% 60%;
+    --primary-foreground: 24 12% 6%;
+    --primary-glow: 42 90% 70%;
 
-    --secondary: 30 6% 14%;
-    --secondary-foreground: 36 24% 92%;
+    /* Graphite secondary — slightly warmer, lifted */
+    --secondary: 28 7% 14%;
+    --secondary-foreground: 38 30% 94%;
+    --surface-elevated: 30 9% 12%;
 
-    --muted: 30 6% 13%;
-    --muted-foreground: 36 8% 62%;
+    --muted: 28 7% 13%;
+    --muted-foreground: 36 10% 68%;
 
-    --accent: 36 45% 62%;
-    --accent-foreground: 30 10% 8%;
+    --accent: 40 70% 60%;
+    --accent-foreground: 24 12% 6%;
 
-    --ember: 8 72% 52%;
+    /* Ember red — confident secondary accent */
+    --ember: 8 78% 55%;
+    --ember-foreground: 38 30% 96%;
 
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 36 24% 92%;
+    --destructive: 0 70% 48%;
+    --destructive-foreground: 38 30% 94%;
 
-    --border: 30 8% 18%;
+    --border: 30 8% 20%;
     --input: 30 8% 16%;
-    --ring: 36 45% 62%;
+    --ring: 40 70% 60%;
 
     --radius: 0.25rem;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(180deg, hsl(30 10% 5% / 0.2) 0%, hsl(30 10% 5% / 0.55) 55%, hsl(30 10% 5%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(36 55% 70%), hsl(36 40% 52%));
-    --gradient-radial: radial-gradient(ellipse at center, hsl(36 45% 62% / 0.12), transparent 70%);
+    /* Gradients — richer and more cinematic */
+    --gradient-hero: linear-gradient(180deg, hsl(24 12% 4% / 0.15) 0%, hsl(24 12% 4% / 0.6) 55%, hsl(24 12% 4%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 90% 72%) 0%, hsl(40 70% 58%) 50%, hsl(34 60% 44%) 100%);
+    --gradient-ember: linear-gradient(135deg, hsl(14 80% 58%) 0%, hsl(8 78% 50%) 60%, hsl(2 70% 38%) 100%);
+    --gradient-radial: radial-gradient(ellipse at center, hsl(40 70% 60% / 0.18), transparent 70%);
+    --gradient-spotlight: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(40 70% 60% / 0.22), transparent 70%);
+    --gradient-surface: linear-gradient(180deg, hsl(30 9% 12%) 0%, hsl(26 10% 9%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(40 70% 60%) 0%, hsl(34 65% 48%) 100%);
 
     /* Shadows */
-    --shadow-elegant: 0 30px 60px -20px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 60px hsl(36 45% 62% / 0.18);
+    --shadow-elegant: 0 30px 60px -20px hsl(0 0% 0% / 0.7);
+    --shadow-glow: 0 0 60px hsl(40 70% 60% / 0.28);
+    --shadow-glow-strong: 0 10px 40px -8px hsl(40 70% 60% / 0.45);
+    --shadow-ember: 0 10px 40px -8px hsl(8 78% 55% / 0.4);
+    --shadow-card: 0 20px 50px -20px hsl(0 0% 0% / 0.55), 0 0 0 1px hsl(40 70% 60% / 0.04);
 
     /* Motion */
     --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
 
     --sidebar-background: 30 8% 9%;
     --sidebar-foreground: 36 24% 92%;
-    --sidebar-primary: 36 45% 62%;
+    --sidebar-primary: 40 70% 60%;
     --sidebar-primary-foreground: 30 10% 8%;
     --sidebar-accent: 30 6% 14%;
     --sidebar-accent-foreground: 36 24% 92%;
     --sidebar-border: 30 8% 18%;
-    --sidebar-ring: 36 45% 62%;
+    --sidebar-ring: 40 70% 60%;
   }
 }
 
@@ -104,5 +117,96 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  .ember-text {
+    background: var(--gradient-ember);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Premium surfaces — slightly lifted, subtle inner glow */
+  .surface-premium {
+    background: var(--gradient-surface);
+    box-shadow:
+      inset 0 1px 0 hsl(40 70% 60% / 0.06),
+      0 1px 0 hsl(0 0% 0% / 0.4),
+      var(--shadow-card);
+  }
+
+  .surface-spotlight {
+    background:
+      var(--gradient-spotlight),
+      hsl(var(--background));
+  }
+
+  /* Premium CTA button — gold gradient with depth */
+  .btn-gold {
+    position: relative;
+    background: var(--gradient-cta);
+    color: hsl(var(--primary-foreground));
+    box-shadow:
+      inset 0 1px 0 hsl(42 90% 80% / 0.5),
+      0 1px 0 hsl(0 0% 0% / 0.4),
+      0 10px 30px -10px hsl(40 70% 60% / 0.5);
+    transition: all 280ms var(--ease-cinema);
+  }
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 hsl(42 90% 85% / 0.6),
+      0 1px 0 hsl(0 0% 0% / 0.4),
+      0 16px 40px -10px hsl(40 70% 60% / 0.65),
+      0 0 60px hsl(40 70% 60% / 0.25);
+  }
+
+  .btn-ember {
+    background: var(--gradient-ember);
+    color: hsl(var(--ember-foreground));
+    box-shadow:
+      inset 0 1px 0 hsl(14 80% 75% / 0.4),
+      0 10px 30px -10px hsl(8 78% 55% / 0.55);
+    transition: all 280ms var(--ease-cinema);
+  }
+  .btn-ember:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 hsl(14 80% 80% / 0.5),
+      0 16px 40px -10px hsl(8 78% 55% / 0.7);
+  }
+
+  .btn-outline-gold {
+    border: 1px solid hsl(40 70% 60% / 0.4);
+    color: hsl(var(--foreground));
+    background: hsl(40 70% 60% / 0.04);
+    transition: all 280ms var(--ease-cinema);
+  }
+  .btn-outline-gold:hover {
+    border-color: hsl(40 70% 60% / 0.85);
+    background: hsl(40 70% 60% / 0.1);
+    color: hsl(var(--primary));
+  }
+
+  /* Animated gold hairline */
+  .hairline-gold {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    height: 1px;
+  }
+
+  /* Subtle vignette for premium sections */
+  .vignette::before {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 100% 80% at 50% 50%, transparent 50%, hsl(0 0% 0% / 0.4) 100%);
+  }
+
+  /* Glow ring around accent imagery */
+  .ring-gold {
+    box-shadow:
+      0 0 0 1px hsl(40 70% 60% / 0.2),
+      0 30px 80px -30px hsl(40 70% 60% / 0.35),
+      var(--shadow-elegant);
   }
 }

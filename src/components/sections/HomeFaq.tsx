@@ -27,7 +27,7 @@ const items = [
 ];
 
 export const HomeFaq = () => (
-  <section className="relative border-t border-border/60 bg-secondary/20 py-24 md:py-32">
+  <section className="relative border-t border-border/60 bg-secondary/40 py-24 md:py-32">
     <div className="container grid gap-16 md:grid-cols-12">
       <Reveal className="md:col-span-4">
         <p className="text-xs uppercase tracking-[0.4em] text-primary">Питання</p>
@@ -48,8 +48,8 @@ export const HomeFaq = () => (
       <div className="md:col-span-8">
         <Accordion type="single" collapsible className="w-full">
           {items.map((item, i) => (
-            <AccordionItem key={item.q} value={`item-${i}`} className="border-b border-border/60">
-              <AccordionTrigger className="py-6 text-left font-display text-xl hover:no-underline md:text-2xl">
+            <AccordionItem key={item.q} value={`item-${i}`} className="border-b border-border/60 transition-colors hover:border-primary/40">
+              <AccordionTrigger className="py-6 text-left font-display text-xl hover:no-underline hover:text-primary md:text-2xl [&[data-state=open]]:text-primary">
                 {item.q}
               </AccordionTrigger>
               <AccordionContent className="pb-6 text-base leading-relaxed text-muted-foreground">
