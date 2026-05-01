@@ -17,6 +17,28 @@ export const Hero = () => (
       <div className="absolute inset-0 bg-gradient-radial" />
     </div>
 
+    {/* Subtle editorial paper-note accent */}
+    <motion.div
+      initial={{ opacity: 0, y: 30, rotate: -6 }}
+      animate={{ opacity: 1, y: 0, rotate: -4 }}
+      transition={{ duration: 1.4, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      className="pointer-events-none absolute right-6 top-28 z-10 hidden w-56 origin-top-right select-none md:block lg:right-12 lg:top-32"
+      aria-hidden
+    >
+      <div
+        className="relative px-5 py-6 font-display text-sm italic leading-snug text-foreground/80 shadow-elegant"
+        style={{
+          background: "linear-gradient(180deg, hsl(36 22% 90% / 0.96), hsl(36 14% 82% / 0.92))",
+          color: "hsl(30 12% 14%)",
+          clipPath:
+            "polygon(2% 0, 96% 1%, 100% 6%, 99% 94%, 95% 100%, 6% 99%, 1% 95%, 0 5%)",
+        }}
+      >
+        <div className="text-[0.6rem] uppercase tracking-[0.3em] text-primary/80">Сцена · Дубль 1</div>
+        <p className="mt-3">«Знайти свій голос — це почути тишу всередині.»</p>
+      </div>
+    </motion.div>
+
     <div className="relative z-10 container flex min-h-[100svh] flex-col justify-end pb-20 pt-32 md:pb-28">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

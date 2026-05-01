@@ -1,9 +1,16 @@
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import { toast } from "@/hooks/use-toast";
 
 export const ApplyForm = () => {
   const [loading, setLoading] = useState(false);
+  const [params] = useSearchParams();
+  const presetDirection = params.get("direction");
+  const initialDirection =
+    presetDirection === "acting" || presetDirection === "journalism" || presetDirection === "both"
+      ? presetDirection
+      : "";
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,6 +40,10 @@ export const ApplyForm = () => {
             Без зобов'язань. Ми зателефонуємо чи напишемо у зручний для вас час, поставимо
             кілька запитань і спокійно поговоримо.
           </p>
+          <p className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+            Для нових учнів — знижка 50% на перший місяць навчання
+          </p>
           <div className="mt-12 space-y-3 text-sm text-muted-foreground">
             <p>Київ · вул. Хрещатик, 22</p>
             <p>+380 (00) 000 00 00</p>
@@ -52,7 +63,7 @@ export const ApplyForm = () => {
             </div>
             <div>
               <label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Напрям, який цікавить</label>
-              <select name="direction" className={inputCls} defaultValue="">
+              <select name="direction" className={inputCls} defaultValue={initialDirection}>
                 <option value="" disabled>Оберіть напрям</option>
                 <option value="acting">Акторська майстерність</option>
                 <option value="journalism">Журналістика</option>

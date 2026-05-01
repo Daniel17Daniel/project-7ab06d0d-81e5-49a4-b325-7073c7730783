@@ -6,6 +6,7 @@ import { Benefits } from "@/components/sections/Benefits";
 import { Teachers } from "@/components/sections/Teachers";
 import { Stories } from "@/components/sections/Stories";
 import { Journey } from "@/components/sections/Journey";
+import { HomeFaq } from "@/components/sections/HomeFaq";
 import { CtaBlock } from "@/components/sections/CtaBlock";
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
       <Teachers />
       <Stories />
       <Journey />
+      <HomeFaq />
       <CtaBlock />
     </>
   );

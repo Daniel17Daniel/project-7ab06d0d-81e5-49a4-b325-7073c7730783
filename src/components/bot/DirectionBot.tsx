@@ -91,6 +91,7 @@ export const DirectionBot = () => {
         body: "Вас тягне до сцени, емоцій і живої присутності. Це простір, де можна розкритися, відчути своє тіло, голос і свободу самовираження — спокійно й по-дорослому.",
         primaryHref: "/acting",
         primaryLabel: "Відкрити сторінку напряму",
+        applyHref: "/apply?direction=acting",
       };
     }
     if (r === "journalism") {
@@ -99,6 +100,7 @@ export const DirectionBot = () => {
         body: "Вас вабить чітке мовлення, камера, інтерв'ю та комунікація. Тут ви опануєте подачу, структуру думки й упевненість перед мікрофоном і людьми.",
         primaryHref: "/journalism",
         primaryLabel: "Відкрити сторінку напряму",
+        applyHref: "/apply?direction=journalism",
       };
     }
     return {
@@ -106,6 +108,7 @@ export const DirectionBot = () => {
       body: "Ваші відповіді показують інтерес і до сцени, і до медіа. Це нормально — багато наших учнів так починають. Подивіться обидві сторінки й оберіть те, що відгукнеться сильніше.",
       primaryHref: "/acting",
       primaryLabel: "Подивитись Акторську",
+      applyHref: "/apply?direction=both",
     };
   };
 
@@ -224,7 +227,7 @@ export const DirectionBot = () => {
                           {r.primaryLabel} <span>→</span>
                         </Link>
                         <Link
-                          to="/apply"
+                          to={r.applyHref}
                           onClick={() => setOpen(false)}
                           className="inline-flex items-center gap-3 border border-foreground/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-foreground transition-all hover:border-foreground"
                         >
